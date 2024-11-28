@@ -1,0 +1,21 @@
+site_name: Portfolio 2 Inteligência Artificial
+
+theme:
+   name: material 
+   palette:
+    - scheme: default
+      toggle: 
+         icon: material/toggle-switch-off-outline
+         name: Dark mode
+      primary: blue
+    - scheme: slate
+      toggle:
+         icon: material/toggle-switch
+         name: Light mode
+
+nav:
+  - Introdução: index.md
+  - Algoritmo 1: index.md
+  - Algoritmo 2: index.md
+  - Algoritmo 3: index.md
+  - Algoritmo 4: index.md 
