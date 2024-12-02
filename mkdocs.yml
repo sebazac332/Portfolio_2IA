@@ -14,7 +14,7 @@ theme:
          name: Light mode
 
 nav:
-  - Introdução: index.md
+  - Agente de soluções de problemas: index.md
   - Algoritmo 1: index.md
   - Algoritmo 2: index.md
   - Algoritmo 3: index.md
