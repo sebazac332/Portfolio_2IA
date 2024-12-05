@@ -1,0 +1,4 @@
+# Algoritmos de busca
+
+São algoritmos que recebem um problema de busca como entrada e produzem uma solução, estes usam algo chamado árvore de busca, estes são compostos por nós que representam um estado específico e as bordas que correspondem a ações que levam a diferentes estados; essas árvores formam múltiplas rotas do nó raiz que é o estado inicial do problema, o objetivo do algoritmo de busca é encontrar uma rota que leve ao nó (estado) alvo.
+A árvore da busca faz parte de algo conhecido como espaço de estados, estes são os múltiplos e provavelmente infinitos estados que existem no mundo e as ações que levam de um estado para outro; o arvore de busca são caminhos específicos neste espaço de estados que se originam a partir de um único estado raiz.

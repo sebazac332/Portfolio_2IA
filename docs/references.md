@@ -5,3 +5,5 @@
 - https://www.lmlogix.com.br/malha-fechada-e-aberta/ accessado 03/12/2024
 - https://www.geeksforgeeks.org/difference-between-open-loop-control-system-and-closed-loop-control-system/ accessado 04/12/2024
 - AI a modern aproach
+- https://www.geeksforgeeks.org/search-algorithms-in-ai/
+- https://www.elastic.co/blog/understanding-ai-search-algorithms
