@@ -40,3 +40,25 @@ Critério utilizado para escolher algoritmos de busca, o desempenho pode ser med
 - Otimização de custos: Pode encontrar uma solução com o menor custo de todas as soluções?
 - Complexidade de tempo: Quanto tempo leva para encontrar uma solução. Pode ser medido em uma unidade de tempo como segundos ou pelo número de ações e estados.
 - Complexidade do espaço: Quanta memória é usada para fazer a busca.
+
+## Busca cega
+
+Algoritmos que não possuem informações sobre o espaço de busca, dependem unicamente da estrutura do espaço de busca para encontrar uma solução. Eles são apenas capazes de gerar sucessores e diferenciar entre o estado objetivo e não-objetivo. Os planos para chegar ao estado-alvo a partir do estado inicial são diferenciados apenas pela ordem e duração das ações.
+
+### Busca por amplitude
+
+Estratégia apropriada quando todas as ações têm o mesmo custo, baseia-se em expandir primeiro todos os nós pai antes de expandir seus sucessores, começando com o nó raiz. É uma estratégia de busca sistemática, então funciona mesmo em espaços de estados infinitos. A função de avaliação é o número de ações que são tomadas para chegar a um nó. Para essa estratégia, uma fila FIFO é usada, onde os novos nós vão para o final da fila e os mais antigos ficam no início. Essa estratégia permite verificar se um estado é o alvo antes que ele saia da fila, porque uma vez que um estado foi atingido não será possível encontrar um caminho melhor. Busca por profundidade sempre encontra uma solução com o menor número de ações pois esta gera todos os nós em um "nível" antes de passar ao próximo pelo que se a solução estiver nesse "nível" já teria sido encontrada. Esta estratégia possui uma complexidade de tempo e espaço de O(b<sup>d</sup>) onde b são os nós sucessores e d é a profundidade da árvore de busca.
+
+### Algoritmo de Dijkstra
+
+Também conhecido como busca de custo uniforme é usado quando as ações têm custos diferentes, baseia-se em expandir primeiro o estado que tem o menor custo, esses custos são atribuídos com base no custo que têm todas as ações tomadas para chegar a esse estado. Se durante o processo for encontrado um caminho com menor custo para um estado que já havia sido alcançado, este caminho substituirá o anterior. A complexidade do algoritmo de Dijkstra é de O(b<sup>1 + [C*/e]</sup>) onde C* é o custo da solução ideal, e é o custo mínimo de uma ação com e > 0 e b é o número de vizinhos por nó. Esta estratégia é completa e de custo ótimo, pois a primeira solução que encontrar terá um custo tão baixo quanto o custo de qualquer outro nó.
+
+### Busca por profundidade
+
+Esta estratégia é baseada em expandir primeiro os nós sucessores antes de expandir os nós pai, nesta mente automaticamente "abaixa" tudo o que pode na árvore de busca até encontrar um nó que não tenha sucessores, Então, um nível é elevado e verifica se o nó pai tem outros nós sucessores não expandidos, se este for o caso, passa a expandir estes. Esta estratégia não é eficaz em custo, pois retorna a primeira solução que encontra. Somente é eficaz em espaços finitos que são árvores, em espaços cíclicos pode ficar presa em um loop infinito e em espaços infinitos é possível que termine presa em um caminho infinito mesmo não havendo ciclos, pelo que não é sistemática. Uma das suas principais vantagens e a principal razão pela qual é usado é a baixa quantidade de memória necessária. Sua complexidade espacial, somente em espaços onde é aplicável, é de O(bm) onde b é o fator de ramificação (número de filhos em cada nó) e m é a profundidade máxima da árvore.
+
+### Busca por profundidade limitada
+
+### Busca iterativa de aprofundamento
+
+## Busca informada
