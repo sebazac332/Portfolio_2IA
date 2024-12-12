@@ -59,6 +59,10 @@ Esta estratégia é baseada em expandir primeiro os nós sucessores antes de exp
 
 ### Busca por profundidade limitada
 
+É uma versão de busca por profundidade na qual os nós que estão em uma profundidade l definida anteriormente, serão considerados como se não tivessem sucessores. Isso é feito com o objetivo de que a busca por profundidade não fique presa em um caminho infinito. A complexidade do espaço é O(b<sup>l</sup>) enquanto que a complexidade do tempo é O(bl) onde b é o fator de ramificação (número de filhos em cada nó) e l é a profundidade limite. Escolher o limite certo é muito importante, pois disso depende que o algoritmo possa alcançar a solução. Para aumentar a qualidade do limite definido pode-se usar informação que está disponível sobre o problema. Uma maneira bastante simples de definir esse limite é o número de nós na árvore menos um; no entanto, uma forma muito mais eficaz que é usar o diâmetro do grafo, este é o caminho mais curto entre os nós mais distantes no grafo. Infelizmente, na maioria dos casos, informações como o diâmetro não estarão disponíveis até que o problema seja resolvido.
+
 ### Busca iterativa de aprofundamento
+
+### Busca bidirecional
 
 ## Busca informada
