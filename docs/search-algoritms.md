@@ -63,6 +63,12 @@ Esta estratégia é baseada em expandir primeiro os nós sucessores antes de exp
 
 ### Busca iterativa de aprofundamento
 
+Versão do algoritmo usado como solução para o problema de encontrar um limite apropriado l, isso é feito executando o algoritmo usando cada valor possível, começando de zero, até que uma solução seja encontrada ou até que uma falha seja retornado. Seu uso é ótimo quando as ações custam o mesmo e é completo em espaços finitos sem ciclos ou quando os nós são verificados para ciclos ao longo do caminho. Os requisitos de memória não são tão altos sendo sua complexidade espacial O(bd) se houver solução ou O(bm) em espaços finitos onde não há. Isso é conseguido porque este algoritmo opta por gerar todos os nós novamente para cada iteração em vez de mantê-los na memória, no entanto, isto resulta em um aumento no tempo de execução. A complexidade do tempo é O(b<sup>d</sup>) quando há solução ou O(b<sup>m</sup>) quando não há. Para as complexidades b é o fator de ramificação (número de filhos em cada nó), m é a profundidade máxima (que aumenta em cada iteração) e d é a profundidade onde o alvo está.
+
 ### Busca bidirecional
 
+Algoritmo no qual são feitas duas buscas ao mesmo tempo, uma do nó raiz e outra do nó alvo, isto com a intenção de que as duas buscas se encontrem para assim chegar à solução. Para que isso funcione corretamente é necessário manter duas tabelas de nós a que se chegou, duas fronteiras e ser capaz de raciocinar ao contrário (os papéis de nó pai e sucessor são invertidos quando vistos da perspectiva do outro busqueda). Para saber qual nó expandir usa a função de avaliação, expande o nó que tem o menor valor entre as duas fronteiras. A complexidade de tempo e espaço é O(b<sup>d/2</sup>) onde b é o fator de ramificação (número de filhos em cada nó) e d é a profundidade onde o alvo está.
+
 ## Busca informada
+
+Algoritmos que têm informações no estado alvo que usam para aumentar a eficácia dos buscas. Esta informação vem na forma de heurísticas que são funções usadas para estimar a distância do estado alvo que ajudam a priorizar caminhos e não realizar explorações desnecessárias. Alguns exemplos de heuristicas são a distância de Manhattan e a distância euclidiana. Diferentes heurísticas são usadas dependendo do algoritmo que será implementado.
