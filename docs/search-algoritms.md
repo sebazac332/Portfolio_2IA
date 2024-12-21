@@ -72,3 +72,32 @@ Algoritmo no qual são feitas duas buscas ao mesmo tempo, uma do nó raiz e outr
 ## Busca informada
 
 Algoritmos que têm informações no estado alvo que usam para aumentar a eficácia dos buscas. Esta informação vem na forma de heurísticas que são funções usadas para estimar a distância do estado alvo que ajudam a priorizar caminhos e não realizar explorações desnecessárias. Alguns exemplos de heuristicas são a distância de Manhattan e a distância euclidiana. Diferentes heurísticas são usadas dependendo do algoritmo que será implementado.
+
+
+### Greedy melhor-primeira busca
+
+Uma forma de busca do melhor primeiro em que primeiro se expande o nó mais próximo ao alvo, esta distância pode ser expandida usando uma heurística h(x) expandindo o nó com o menor valor dado por essa heurística. Este algoritmo é completo em espaços finitos, mas não em espaços infinitos. Complexidade de espaço e tempo no mas dos casos é O(|V|), sem embrago com uma boa heurística a complexidade pode ser reduzida até O(bm) em certos problemas. Para escolher uma boa heurística é necessário ter uma quantidade de informações sobre o ambiente, qual heurística será usada depende do problema em questão. Um exemplo de heurística seria a distância da linha reta, que está relacionada à distância real dos caminhos.
+
+### Busca A∗
+
+Estratégia que combina busca de custo uniforme e busca gananciosa, primeiro expande o nó que tem o menor valor f(n) que é calculado somando g(n), custo regressivo que é o custo do nó inicial até o nó atual n, com h(n), custo futuro que é o menor custo estimado do nó atual para o nó alvo. A complexidade depende da heurística usada, no pior dos casos esta será igual à de busca de custo uniforme. A eficácia desta busca depende de que a heurística seja admissível, ou seja, não superestime o custo real de alcançar o nó alvo. Uma das principais desvantagens é o alto consumo de tempo e espaço de memória, pois muitos nós são expandidos.
+
+### Busca A∗ ponderada
+
+Variação de busca A* em que se introduz um peso na fórmula f(n) ficando assim f(n) = g(n) + W*h(n), onde W seria o peso do nó, este sempre deve ser maior que um e seu valor aumentará quanto mais próximo este dito nó do nó alvo, Isso permite que o algoritmo explore os nós que podem ter um valor h(n) baixo. Este algoritmo só deve ser aplicado se você pode aceitar soluções subótimas, pois não garante o menor custo possível, em troca consome menos espaço e encontra uma solução em menos tempos porque expande menos nós. A complexidade é bastante semelhante à busca A* com várias variações.
+
+### Busca de feixe
+
+Algoritmo de busca com funcionalidade similar à busca por profundidade, já que gera todos os sucessores em um nível, porém neste caso limitamos os nós que podem ser expandidos, só considerando aqueles que têm os melhores valores dados pela heurística. O número de nós que podem expandir é conhecido como a largura do raio (W) que é definida manualmente. Para saber quantos nós serão avaliados, multiplique-se a largura do feixe pelo fator de ramificação W * B. Este algoritmo é incompleto e subótimo, pois não garante a solução com menos custo em troca de executar extremamente rápido e consumir muito menos memória porque expande menos nós. Na prática, ele é capaz de encontrar soluções muito próximas das ótimas para muitos problemas. Essa eficácia depende muito da qualidade da heurística. Complexidade do tempo é O(b*W) e complexidade do espaço é O(m*W*b) onde b é o fator de ramificação (número de filhos em cada nó), m é a profundidade máxima e W é a largura do raio.
+
+### Busca A∗ com aprofundamento iterativo
+
+Algoritmo que combina recursos de busca por profundidade iterativa com a busca A*. Limita o uso de memória ao não salvar os nós visitados, isso faz com que eles sejam visitados novamente em cada iteração. O número de nós expandidos depende do valor de f(n), isto é feito expandindo os nós até chegar a um com um valor f(n) maior que um limite definido, a iteração termina quando se chega a todos os nós com valores maiores que o limite. O valor limite aumenta a cada iteração. O valor f(n) é calculado g(n) + h(n). Este algoritmo garante encontrar a solução com o menor custo possível, além de também funciona em espaços infinitos tudo isso com um uso limitado de memória, em troca é mais lento que procura A* pois tem que percorrer todos os nós em cada iteração, até mesmo de exigir maior poder de processamento.
+
+### Busca recursiva do melhor primeiro
+
+Algoritmo com funcionalidade semelhante à busca do melhor primeiro, no entanto este tem a capacidade de "retroceder" se considerar que o caminho atual não é o melhor e existe uma alternativa que poderia dar melhores resultados. Isso é feito usando um valor f que serve como limite, se um nó atinge esse valor é retornado para seu antepassado, substitui o valor do limite pelo do nó e expande-se um nó alternativo que tenha o melhor valor f(n). Este algoritmo é ótimo se a heurística h(n) for admissível, ou seja, não superestime o custo real de alcançar o nó alvo. A complexidade espacial é linear à profundidade da solução com menor custo mais profunda, a complexidade de tempo varia muito, depende principalmente da precisão da função heurística e quantas vezes se muda de caminho.
+
+### Pesquisa heurística bidirecional
+
+Algoritmo que implementa a funcionalidade de busca bidirecional com uma fórmula heurística para determinar qual nó será expandido entre as duas fronteiras. Uma maneira de fazer isso seria usando a fórmula de busca A* f (n) = g(n) + h(n), no entanto para que isso funcione a heurística dessa fórmula deve ser diferente para cada um dos dois busques que são feitos, porque ambos têm objetivos diferentes uma tenta ir para o objetivo e outra para a origem, por isso devem ser usadas duas fórmulas distintas fF(n) =gF(n) + hF(n) para busca que vai para o alvo e fB(n) = gB(n) + hB(n) para busca que vai para o nó raiz. Outra forma que pode ser feita é usando a fórmula f2(n) = max(2g(n),g(n)+h(n)), esta ao contrário da fórmula de busca A* pode ser usada para ambos os busses, expande-se o nó que tem o valor mínimo f2(n). Sua eficácia depende da qualidade da heurística, se essa heurística é boa busca A* dá melhores resultados, se a qualidade é regular procura bidirecional é preferida porque explora menos nós e se a heurística é má ambas têm um desempenho quase igual. Este algoritmo é completo e ótimo.
