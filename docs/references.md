@@ -10,3 +10,4 @@
 - https://www.youtube.com/watch?v=GJrq8C4wnTA accessado 18/12/2024
 - https://www.geeksforgeeks.org/introduction-to-beam-search-algorithm/ accessado 18/12/2024
 - https://www.geeksforgeeks.org/iterative-deepening-a-algorithm-ida-artificial-intelligence/ accessado 19/12/2024
+- https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/heuristic-function-in-ai accessado 22/12/2024
