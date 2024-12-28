@@ -55,3 +55,24 @@ a ação a qualquer um dos estados no estado de crença atual.
 - **Custo de ação:** Se a mesma ação pode ter custos diferentes em diferentes estados, então o custo de realizar uma ação em um determinado estado de crença poderia ser um dos vários valores.
 
 ## Busca online
+
+Algoritmos de busca online são aqueles que tomam uma ação e esperam para ver como o ambiente reage antes de realizar a próxima ação, isso ao contrário dos algoritmos de busca offline em que se calcula a solução completa antes de tomar o primeiro passo, a maioria dos algoritmos vistos são de busca offline.
+
+As coisas que o agente sabe neste tipo de busca são limitadas, estas são:
+
+- **ACTIONS(s)**, as ações legais no estado s;
+- **c(s,a, s′)**, o custo de aplicar a ação a no estado s para chegar ao estado s′. Observe que isso não pode ser usado até que o agente saiba que s′ é o resultado.
+- **IS-GOAL(s)**, o teste de meta.
+
+Uma das principais vulnerabilidades desses busques são os becos sem saída, que são estados em que é possível chegar a uma solução, isto é especialmente difícil em explorações, em que certos objetos do terreno como rampas ou penhascos resultam em ações irreversíveis, que é quando não é possível voltar a um estado anterior.
+
+Uma forma de medir a eficácia do algoritmo de busca on-line é através da relação competitiva que é a diferença entre o custo da solução encontrada por meio de pesquisa on-line e o custo da solução se o agente conhecesse o espaço de busca com antecedência, Idealmente, esse valor deve ser o menor possível.
+
+Algoritmos de busca on-line funcionam muito diferente dos algoritmos de busca offline, agentes on-line recebem informações após cada ação que lhes diz em qual estado ele chegou, esta informação é usada para atualizar seu mapa do ambiente e planejar sua próxima ação. Isso significa que em algoritmos on-line você só pode explorar o espaço de busca tomando ações reais, enquanto em algoritmos off-line o espaço de busca pode ser explorado por simulações.
+
+Para fazer buscas em espaços online busca de escalada não é suficiente pois pode deixar o agente preso em um local máximo. Para usar esse algoritmo, aumentar a escalada com memória em vez de aleatoriedade é uma abordagem mais eficaz. A ideia básica é armazenar uma «melhor estimativa atual» H(s) do custo de atingir o objetivo de cada estado visitado. H(s) começa sendo apenas a estimativa heurística
+h(s) e é atualizado à medida que o agente ganha experiência no espaço de estados. 
+
+Um agente que implemente esse esquema, chamado de aprendizado em tempo real A* (LRTA*) constrói um mapa do ambiente na tabela de resultados. Atualiza a estimativa de custo para o estado que se acabou de abandonar e, em seguida, escolhe o movimento «aparentemente melhor» com base nas estimativas de custos atuais. Um detalhe importante é que sempre se supõe que as ações que ainda não foram tentadas em um estado s conduzem imediatamente ao objetivo com o menor custo possível, isto é, h(s). No pior dos casos, esse agente é capaz de explorar um ambiente com n estados em O(n<sup>2</sup>) passos, embora na maioria dos casos ele costuma ter melhor desempenho.
+
+Para aprender os agentes de busca online realizam duas etapas, primeiro você deve criar um mapa do ambiente, que será formado por todos os resultados de todas as ações em cada estado, o segundo passo é obter estimativas mais precisas do custo de cada estado usando normas locais de atualização.
