@@ -12,3 +12,4 @@
 - https://www.geeksforgeeks.org/iterative-deepening-a-algorithm-ida-artificial-intelligence/ accessado 19/12/2024
 - https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/heuristic-function-in-ai accessado 22/12/2024
 - https://hackmd.io/@coding-guy/SJsVB8JGT?utm_source=preview-mode&utm_medium=rec accessado 25/12/2024
+- https://www.cognizant.com/us/en/glossary/evolutionary-algorithm accessado 28/12/2024
