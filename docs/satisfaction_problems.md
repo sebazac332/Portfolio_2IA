@@ -45,7 +45,3 @@ Algoritmos de problemas de satisfação de condições podem ser usados em:
 9. **Condições globais:** Restringe os valores de um número arbitrário de variáveis, este pode ser qualquer número maior que quatro incluindo todas as variáveis existentes no problema. Ex: Alldiff, condição que estipula que todas as variáveis devem ter valores diferentes.
 
 10. **Condições de preferência:** Condições não obrigatórias que ajudam a decidir quais soluções escolher, supondo que há múltiplos. Ex: em uma situação se pedem dois números pares, o número de opções foi reduzido a dois números 6 e 4, uma condição de preferência é que esse número seja múltiplo de 3, portanto a solução escolhida será o número 6; se em vez de 6 e 4 as opções fossem 2 e 4 ainda poderia ter sido escolhido uma solução válida mesmo que a condição não fosse cumprida.
-
-## Atribuições
-
-Os valores dados às variáveis são conhecidos como atribuições, uma atribuição que não viola nenhuma condição é conhecida como consistente, uma atribuição completa é quando todas as variáveis têm um valor e, finalmente, uma solução é uma atribuição consistente e completa. Por outro lado, quando há variáveis que não têm nenhum valor, isso é conhecido como atribuição parcial e uma solução parcial é uma atribuição parcial consistente.
