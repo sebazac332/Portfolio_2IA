@@ -16,7 +16,10 @@ Variáveis são consideradas consistência de caminho quando não têm consistê
 
 ## Consistência K
 
-
+A k-Consistência generaliza o conceito de consistência de arco e caminho para k variáveis. Ela garante que, para cada subconjunto de k-1 variáveis, haja um valor consistente na k-ésima variável. Níveis mais altos de consistência proporcionam mais poda, mas são computacionalmente mais caros.
 
 ## Consistência global
 
+As restrições globais ocorrem com frequência em problemas reais e podem ser tratadas por algoritmos para fins especiais que são mais eficientes do que os métodos para fins gerais descritos até agora. O algoritmo é o seguinte: Primeiro, remova qualquer variável da restrição que tenha um domínio único e exclua o valor dessa variável dos domínios das variáveis restantes. Repita o procedimento enquanto houver variáveis singleton. Se em algum momento for produzido um domínio vazio ou se houver mais variáveis do que valores de domínio restantes, então foi detectada uma inconsistência.
+
+Para grandes problemas de recursos limitados com valores inteiros, geralmente não é possível representar o domínio de cada variável como um grande conjunto de números inteiros e reduzir gradualmente esse conjunto por meio de métodos de verificação de consistência. Em vez disso, os domínios são representados por limites superiores e inferiores e são gerenciados pela propagação de limites. Neste caso, o processo altera os limites superiores e inferiores dos intervalos para que estes cumpram as condições.

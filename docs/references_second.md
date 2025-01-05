@@ -7,3 +7,4 @@
 - https://www.geeksforgeeks.org/constraint-satisfaction-problems-csp-in-artificial-intelligence/
 - https://www.lindo.com/doc/online_help/lingo15_0/linear_constraints.htm accesado 02/01/2025
 - https://www.lindo.com/doc/online_help/lingo15_0/index.html?nonlinear_constraints.htm accesado 02/01/20257
+- https://www.geeksforgeeks.org/constraint-propagation-in-ai/ accesado 05/01/20257
