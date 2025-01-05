@@ -13,3 +13,12 @@
 - https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/heuristic-function-in-ai accessado 22/12/2024
 - https://hackmd.io/@coding-guy/SJsVB8JGT?utm_source=preview-mode&utm_medium=rec accessado 25/12/2024
 - https://www.cognizant.com/us/en/glossary/evolutionary-algorithm accessado 28/12/2024
+
+# Referências de algoritmos
+## Bidirectional BFS
+- https://www.youtube.com/watch?v=RS9r7FzYKDk accesado 02/01/2025
+- https://leetcode.com/problems/word-ladder/solutions/ accesado 03/01/2025
+
+## Beam search
+- https://blog.finxter.com/python-beam-search-algorithm/ accesado 04/01/2025
+- https://www.youtube.com/watch?v=3m1lvN2fTtY accesado 04/01/2025
