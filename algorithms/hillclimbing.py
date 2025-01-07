@@ -1,24 +1,19 @@
 import numpy as np
 import random
 
-# Set seed for reproducibility
 np.random.seed(42)
 random.seed(42)
 
-# Generate a set of cities
 num_cities = 10
 cities = np.random.rand(num_cities, 2)
 
-# Distance function
 def calculate_distance(route):
-    route_extended = np.append(route, [route[0]], axis=0)  # Return to the starting point
+    route_extended = np.append(route, [route[0]], axis=0)
     return np.sum(np.sqrt(np.sum(np.diff(route_extended, axis=0)**2, axis=1)))
 
-# Function to create a random initial route
 def create_initial_route(cities):
     return np.array(random.sample(list(cities), len(cities)))
 
-# Function to create neighboring solutions
 def get_neighbors(route):
     neighbors = []
     for i in range(len(route)):
