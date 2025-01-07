@@ -22,3 +22,6 @@
 ## Beam search
 - https://blog.finxter.com/python-beam-search-algorithm/ accesado 04/01/2025
 - https://www.youtube.com/watch?v=3m1lvN2fTtY accesado 04/01/2025
+
+## Local search
+- https://www.geeksforgeeks.org/hill-climbing-and-simulated-annealing-for-the-traveling-salesman-problem/ accesado 07/01/2025
