@@ -25,3 +25,6 @@
 
 ## Local search
 - https://www.geeksforgeeks.org/hill-climbing-and-simulated-annealing-for-the-traveling-salesman-problem/ accesado 07/01/2025
+
+## Genetic algorithm
+- https://www.youtube.com/watch?v=4XZoVQOt-0I accesado 09/01/2025
