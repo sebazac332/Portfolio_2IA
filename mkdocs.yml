@@ -1,4 +1,4 @@
-site_name: Portfolio 2 Inteligência Artificial
+site_name: Portfólio 2 e 3 de Inteligência Artificial
 
 theme:
    name: material 
@@ -14,8 +14,16 @@ theme:
          name: Light mode
 
 nav:
-  - Agente de soluções de problemas: index.md
-  - Algoritmo 1: index.md
-  - Algoritmo 2: index.md
-  - Algoritmo 3: index.md
-  - Algoritmo 4: index.md 
+  - Impressões gerais: index.md
+  - Portfólio 2:
+    - Agentes de soluções de problemas: problem_solution_agent.md
+    - Problemas de malha aberta e de malha fechada: open-closed-problems.md
+    - Algoritmos de busca: search-algoritms.md
+    - Funções Heurísticas: heuristic_functions.md
+    - Busca em ambientes complexos: complex_search.md
+    - Algoritmos genéticos: genetic_algoritms.md
+  - Portfólio 3:
+    - Representação Atômica vs. Fatorada: atomic_vs_factored.md
+    - Definindo Problemas de Satisfação de Condições: satisfaction_problems.md
+    - Algoritmos: CSP_algorithms.md
+    - Estrutura de problemas: index.md
