@@ -52,11 +52,11 @@ Algoritmos que não possuem informações sobre o espaço de busca, dependem uni
 
 Estratégia apropriada quando todas as ações têm o mesmo custo, baseia-se em expandir primeiro todos os nós pai antes de expandir seus sucessores, começando com o nó raiz. É uma estratégia de busca sistemática, então funciona mesmo em espaços de estados infinitos. A função de avaliação é o número de ações que são tomadas para chegar a um nó. Para essa estratégia, uma fila FIFO é usada, onde os novos nós vão para o final da fila e os mais antigos ficam no início. Essa estratégia permite verificar se um estado é o alvo antes que ele saia da fila, porque uma vez que um estado foi atingido não será possível encontrar um caminho melhor. Busca por profundidade sempre encontra uma solução com o menor número de ações pois esta gera todos os nós em um "nível" antes de passar ao próximo pelo que se a solução estiver nesse "nível" já teria sido encontrada. Esta estratégia possui uma complexidade de tempo e espaço de O(b<sup>d</sup>) onde b são os nós sucessores e d é a profundidade da árvore de busca. [5]
 
-![BFS-DFS-common](../img/BFS_DFS_common_problem.PNG)
+![BFS-DFS-common](img/BFS_DFS_common_problem.PNG)
 
 *Exemplo de problema a ser resolvido onde se deve ir de S para G.*
 
-![BFS](../img/BFS_sol.PNG)
+![BFS](img/BFS_sol.PNG)
 
 *Solução BFS para o problema.*
 
@@ -64,11 +64,11 @@ Estratégia apropriada quando todas as ações têm o mesmo custo, baseia-se em 
 
 Também conhecido como busca de custo uniforme é usado quando as ações têm custos diferentes, baseia-se em expandir primeiro o estado que tem o menor custo, esses custos são atribuídos com base no custo que têm todas as ações tomadas para chegar a esse estado. Se durante o processo for encontrado um caminho com menor custo para um estado que já havia sido alcançado, este caminho substituirá o anterior. A complexidade do algoritmo de Dijkstra é de O(b<sup>1 + [C*/e]</sup>) onde C* é o custo da solução ideal, e é o custo mínimo de uma ação com e > 0 e b é o número de vizinhos por nó. Esta estratégia é completa e de custo ótimo, pois a primeira solução que encontrar terá um custo tão baixo quanto o custo de qualquer outro nó. [5]
 
-![dijkstra_problem](../img/djkstra_problem.PNG)
+![dijkstra_problem](img/djkstra_problem.PNG)
 
 *Exemplo de problema a ser resolvido onde se deve ir de S para G.*
 
-![dijkstra_sol](../img/djikstra_sol.PNG)
+![dijkstra_sol](img/djikstra_sol.PNG)
 
 *Solução para o problema usando algoritmo dijkstra.*
 
@@ -76,11 +76,11 @@ Também conhecido como busca de custo uniforme é usado quando as ações têm c
 
 Esta estratégia é baseada em expandir primeiro os nós sucessores antes de expandir os nós pai, nesta mente automaticamente "abaixa" tudo o que pode na árvore de busca até encontrar um nó que não tenha sucessores, Então, um nível é elevado e verifica se o nó pai tem outros nós sucessores não expandidos, se este for o caso, passa a expandir estes. Esta estratégia não é eficaz em custo, pois retorna a primeira solução que encontra. Somente é eficaz em espaços finitos que são árvores, em espaços cíclicos pode ficar presa em um loop infinito e em espaços infinitos é possível que termine presa em um caminho infinito mesmo não havendo ciclos, pelo que não é sistemática. Uma das suas principais vantagens e a principal razão pela qual é usado é a baixa quantidade de memória necessária. Sua complexidade espacial, somente em espaços onde é aplicável, é de O(bm) onde b é o fator de ramificação (número de filhos em cada nó) e m é a profundidade máxima da árvore. [5]
 
-![BFS-DFS-common](../img/BFS_DFS_common_problem.PNG)
+![BFS-DFS-common](img/BFS_DFS_common_problem.PNG)
 
 *Exemplo de problema a ser resolvido onde se deve ir de S para G.*
 
-![DFS](../img/DFS_sol.PNG)
+![DFS](img/DFS_sol.PNG)
 
 *Solução DFS para o problema.*
 
@@ -92,7 +92,7 @@ Esta estratégia é baseada em expandir primeiro os nós sucessores antes de exp
 
 Versão do algoritmo usado como solução para o problema de encontrar um limite apropriado l, isso é feito executando o algoritmo usando cada valor possível, começando de zero, até que uma solução seja encontrada ou até que uma falha seja retornado. Seu uso é ótimo quando as ações custam o mesmo e é completo em espaços finitos sem ciclos ou quando os nós são verificados para ciclos ao longo do caminho. Os requisitos de memória não são tão altos sendo sua complexidade espacial O(bd) se houver solução ou O(bm) em espaços finitos onde não há. Isso é conseguido porque este algoritmo opta por gerar todos os nós novamente para cada iteração em vez de mantê-los na memória, no entanto, isto resulta em um aumento no tempo de execução. A complexidade do tempo é O(b<sup>d</sup>) quando há solução ou O(b<sup>m</sup>) quando não há. Para as complexidades b é o fator de ramificação (número de filhos em cada nó), m é a profundidade máxima (que aumenta em cada iteração) e d é a profundidade onde o alvo está. [5]
 
-![IDFS](../img/iterative_deep.PNG)
+![IDFS](img/iterative_deep.PNG)
 
 *Exemplo de algoritmo DFS iterativo.*
 
@@ -185,11 +185,11 @@ Uma forma de busca do melhor primeiro em que primeiro se expande o nó mais pró
 
 Estratégia que combina busca de custo uniforme e busca gananciosa, primeiro expande o nó que tem o menor valor f(n) que é calculado somando g(n), custo regressivo que é o custo do nó inicial até o nó atual n, com h(n), custo futuro que é o menor custo estimado do nó atual para o nó alvo. [6] A complexidade depende da heurística usada, no pior dos casos esta será igual à de busca de custo uniforme. A eficácia desta busca depende de que a heurística seja admissível, ou seja, não superestime o custo real de alcançar o nó alvo. Uma das principais desvantagens é o alto consumo de tempo e espaço de memória, pois muitos nós são expandidos. [5]
 
-![A_search_action_costs](../img/action_costs.PNG)
+![A_search_action_costs](img/action_costs.PNG)
 
 *Custo de chegar a cada nó para o exemplo de algoritmo de busca A∗.*
 
-![A_search](../img/a_search.PNG)
+![A_search](img/a_search.PNG)
 
 *Exemplo de algoritmo de busca A∗.*
 
@@ -197,7 +197,7 @@ Estratégia que combina busca de custo uniforme e busca gananciosa, primeiro exp
 
 Variação de busca A* em que se introduz um peso na fórmula f(n) ficando assim f(n) = g(n) + W*h(n), onde W seria o peso do nó, este sempre deve ser maior que um e seu valor aumentará quanto mais próximo este dito nó do nó alvo, Isso permite que o algoritmo explore os nós que podem ter um valor h(n) baixo. Este algoritmo só deve ser aplicado se você pode aceitar soluções subótimas, pois não garante o menor custo possível, em troca consome menos espaço e encontra uma solução em menos tempos porque expande menos nós. A complexidade é bastante semelhante à busca A* com várias variações. [8]
 
-![weighted_A_search](../img/weighted_a.PNG)
+![weighted_A_search](img/weighted_a.PNG)
 
 *Comparação de busca A∗ (a) com Busca A∗ ponderada (b). As barras cinzas são obstáculos, a linha roxa é o caminho do início verde até a meta vermelha, e os pequenos pontos são estados que foram alcançados por cada busca.*
 
@@ -205,7 +205,7 @@ Variação de busca A* em que se introduz um peso na fórmula f(n) ficando assim
 
 Algoritmo de busca com funcionalidade similar à busca por profundidade, já que gera todos os sucessores em um nível, porém neste caso limitamos os nós que podem ser expandidos, só considerando aqueles que têm os melhores valores dados pela heurística. O número de nós que podem expandir é conhecido como a largura do raio (W) que é definida manualmente. Para saber quantos nós serão avaliados, multiplique-se a largura do feixe pelo fator de ramificação W * B. [9] Este algoritmo é incompleto e subótimo, pois não garante a solução com menos custo em troca de executar extremamente rápido e consumir muito menos memória porque expande menos nós. Na prática, ele é capaz de encontrar soluções muito próximas das ótimas para muitos problemas. Essa eficácia depende muito da qualidade da heurística. Complexidade do tempo é O(b*W) e complexidade do espaço é O(m*W*b) onde b é o fator de ramificação (número de filhos em cada nó), m é a profundidade máxima e W é a largura do raio. [5]
 
-![beam_search](../img/beam_search.PNG)
+![beam_search](img/beam_search.PNG)
 
 *Árvore de busca de feixe, com W = 2 e B = 3 - Apenas dois nós (nós pretos) são selecionados com base em seus valores heurísticos para expansão adicional em cada nível*
 
@@ -213,27 +213,27 @@ Algoritmo de busca com funcionalidade similar à busca por profundidade, já que
 
 Algoritmo que combina recursos de busca por profundidade iterativa com a busca A*. [10] Limita o uso de memória ao não salvar os nós visitados, isso faz com que eles sejam visitados novamente em cada iteração. [5] O número de nós expandidos depende do valor de f(n), isto é feito expandindo os nós até chegar a um com um valor f(n) maior que um limite definido, a iteração termina quando se chega a todos os nós com valores maiores que o limite. O valor limite aumenta a cada iteração. O valor f(n) é calculado g(n) + h(n). Este algoritmo garante encontrar a solução com o menor custo possível, além de também funciona em espaços infinitos tudo isso com um uso limitado de memória, em troca é mais lento que procura A* pois tem que percorrer todos os nós em cada iteração, até mesmo de exigir maior poder de processamento. [!0]
 
-![I_A_search_1](../img/IDA_1.PNG)
+![I_A_search_1](img/IDA_1.PNG)
 
 *Primeira iteração do algoritmo de busca A∗ com aprofundamento iterativa.*
 
-![I_A_search_2](../img/IDA_2.PNG)
+![I_A_search_2](img/IDA_2.PNG)
 
 *Segunda iteração do algoritmo de busca A∗ com aprofundamento iterativa.*
 
-![I_A_search_3](../img/IDA_3.PNG)
+![I_A_search_3](img/IDA_3.PNG)
 
 *Terceira iteração do algoritmo de busca A∗ com aprofundamento iterativa.*
 
-![I_A_search_4](../img/IDA_4.PNG)
+![I_A_search_4](img/IDA_4.PNG)
 
 *Quarta iteração do algoritmo de busca A∗ com aprofundamento iterativa.*
 
-![I_A_search_5](../img/IDA_5.PNG)
+![I_A_search_5](img/IDA_5.PNG)
 
 *Quinta iteração do algoritmo de busca A∗ com aprofundamento iterativa.*
 
-![I_A_search_6](../img/IDA_6.PNG)
+![I_A_search_6](img/IDA_6.PNG)
 
 *Sexta iteração do algoritmo de busca A∗ com aprofundamento iterativa.*
 

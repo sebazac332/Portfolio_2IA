@@ -13,7 +13,7 @@ Usada em:
 - Modelos ocultos de Markov [2]
 - Tarefas de percepção básica [3]
 
-![aromic](../img/atomic.PNG)
+![aromic](img/atomic.PNG)
 
 *Representação atómica.*
 
@@ -26,6 +26,6 @@ Usada em:
 - Algoritmos de satisfação de restrições [2]
 - Redes bayesianas [2]
 
-![factored](../img/factored.PNG)
+![factored](img/factored.PNG)
 
 *Representação fatorada.*
