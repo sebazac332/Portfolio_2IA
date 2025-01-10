@@ -1,0 +1,3 @@
+# Conclusão
+
+Existe uma grande quantidade de algoritmos de busca que se adaptam a uma grande quantidade de situações, a escolha destes dependerá de certas características do ambiente assim como uma decisão entre velocidade de execução e precisão da solução encontrada. Outra parte muito importante é a escolha da heurística, pois em muitos algoritmos a qualidade das respostas encontradas depende em grande parte da qualidade da heurística encontrada e, portanto, uma quantidade considerável de tempo deve ser tomada apenas para analisar e escolher uma heurística que se adapte ao problema enfrentado. Se levar em conta esses pontos, você pode encontrar uma solução para qualquer problema de busca que você está enfrentando.

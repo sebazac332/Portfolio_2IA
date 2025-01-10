@@ -22,8 +22,10 @@ nav:
     - Funções Heurísticas: heuristic_functions.md
     - Busca em ambientes complexos: complex_search.md
     - Algoritmos genéticos: genetic_algoritms.md
+    - Conclusão: conclusion_first.md
   - Portfólio 3:
     - Representação Atômica vs. Fatorada: atomic_vs_factored.md
     - Definindo Problemas de Satisfação de Condições: satisfaction_problems.md
     - Algoritmos: CSP_algorithms.md
     - Estrutura de problemas: index.md
+    - Conclusão: conclusion_second.md

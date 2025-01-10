@@ -1,0 +1,3 @@
+# Conclusão
+
+A introdução de condições para os problemas adiciona outra camada de complexidade à sua resolução bastante significativa. Que tanto influenciará a condição no processo de resolução depende do seu tipo, pois existem condições que devem ser cumpridas obrigatoriamente e existem condições que podem ser ignoradas mesmo que isso seja por um custo. Definir e cumprir condições nos dá a capacidade de obter soluções mais precisas e que se ajustam melhor às exigências dos problemas, no entanto deve-se ter em conta que o processo para obter tais soluções é mais complexo.
