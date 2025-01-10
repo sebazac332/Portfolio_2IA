@@ -6,6 +6,10 @@ Os problemas que um agente IA enfrenta são influenciados por múltiplas circuns
 
 Ocorrem em ambientes totalmente observáveis e determinísticos [5], o agente realiza ações predefinidas sem nenhum tipo de feedback contínuo, comandos fixos são executados sem ajustes durante a execução.[3] Neste tipo de ambientes a resolução do problema será sempre uma sequência de ações fixas.
 
+![malha_aberta](../img/malha_aberta.PNG)
+
+*Exemplo de problema de malha aberta.*
+
 ### Vantagens
 
 - Desenho e implementação simples. [4]
@@ -20,6 +24,10 @@ Ocorrem em ambientes totalmente observáveis e determinísticos [5], o agente re
 ## Problemas de malha fechada
 
 Ocorrem em ambientes não-determinísticos ou que possam possuir informações que só são reveladas durante a execução [5], o agente baseará suas ações no feedback constante obtido através de sensores e atuadores, as ações serão monitoradas constantemente e ajustes em tempo real serão feitos para garantir que o objetivo seja alcançado. [3]
+
+![malha_fechada](../img/malha_fechada.PNG)
+
+*Exemplo de problema de malha fechada.*
 
 ### Vantagens
 

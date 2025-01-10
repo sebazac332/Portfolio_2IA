@@ -13,6 +13,10 @@ Usada em:
 - Modelos ocultos de Markov [2]
 - Tarefas de percepção básica [3]
 
+![aromic](../img/atomic.PNG)
+
+*Representação atómica.*
+
 ## Representação Fatorada
 
 Estados são divididos em atributos e variáveis que têm um valor, descrevem um problema com uma fidelidade mais alta, no entanto a estrutura interna desses atributos e variáveis está oculta. Enquanto dois estados atômicos não têm nada em comum, pois são caixas pretas, dois estados fatorados podem ter alguns atributos compartilhados, o que ajuda a ver com maior clareza quais ações devem ser realizadas para converter um estado em outro. Um exemplo disso é revisitar o problema da rota entre duas cidades, em representação fatorada pode levar em conta coisas como os gps cordenadas, a quantidade de combustível ou o estado do motor na cidade atual. [1]
@@ -21,3 +25,7 @@ Usada em:
 
 - Algoritmos de satisfação de restrições [2]
 - Redes bayesianas [2]
+
+![factored](../img/factored.PNG)
+
+*Representação fatorada.*
