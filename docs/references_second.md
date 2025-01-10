@@ -8,6 +8,8 @@
 - Linear Constraints. Disponível em: <https://www.lindo.com/doc/online_help/lingo15_0/linear_constraints.htm>. Acesso em: 02 jan. 2025. [6]
 - LINGO 15 Online Users Manual. Disponível em: <https://www.lindo.com/doc/online_help/lingo15_0/index.html?nonlinear_constraints.htm>. Acesso em: 02 jan. 2025. [7]
 - GEEKSFORGEEKS. Constraint Propagation in AI. Disponível em: <https://www.geeksforgeeks.org/constraint-propagation-in-ai/>. Acesso em: 05 jan. 2025. [8]
+- Andrew Forney - LMU CS. Disponível em: <https://www.forns.lmu.build/classes/spring-2019/cmsi-282/lecture-13M.html>. Acesso em: 09 jan. 2025. [9]
+- HELMERT, M. Foundations of Artificial Intelligence 28. Constraint Satisfaction Problems: Decomposition Methods. [s.l: s.n.]. Disponível em: <https://ai.dmi.unibas.ch/_files/teaching/fs19/ai/slides/ai28.pdf>. Acesso em: 09 jan. 2025. [10]
 
 # Referências de algoritmos
 
