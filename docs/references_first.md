@@ -26,7 +26,7 @@
 - HORVAT, M. Python Beam Search Algorithm – Be on the Right Side of Change. Disponível em: <https://blog.finxter.com/python-beam-search-algorithm/>. Acesso em: 04 jan. 2025.
 - FINXTER. Python Beam Search Algorithm - A Simple Guide. Disponível em: <https://www.youtube.com/watch?v=3m1lvN2fTtY>. Acesso em: 04 jan. 2025.
 
-## Busca local
+## Escalada
 
 - GEEKSFORGEEKS. Hill Climbing and Simulated Annealing for the Traveling Salesman Problem. Disponível em: <https://www.geeksforgeeks.org/hill-climbing-and-simulated-annealing-for-the-traveling-salesman-problem/>. Acesso em: 07 jan. 2025.
 

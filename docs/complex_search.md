@@ -76,3 +76,58 @@ h(s) e é atualizado à medida que o agente ganha experiência no espaço de est
 Um agente que implemente esse esquema, chamado de aprendizado em tempo real A* (LRTA*) constrói um mapa do ambiente na tabela de resultados. Atualiza a estimativa de custo para o estado que se acabou de abandonar e, em seguida, escolhe o movimento «aparentemente melhor» com base nas estimativas de custos atuais. Um detalhe importante é que sempre se supõe que as ações que ainda não foram tentadas em um estado s conduzem imediatamente ao objetivo com o menor custo possível, isto é, h(s). No pior dos casos, esse agente é capaz de explorar um ambiente com n estados em O(n<sup>2</sup>) passos, embora na maioria dos casos ele costuma ter melhor desempenho. [5]
 
 Para aprender os agentes de busca online realizam duas etapas, primeiro você deve criar um mapa do ambiente, que será formado por todos os resultados de todas as ações em cada estado, o segundo passo é obter estimativas mais precisas do custo de cada estado usando normas locais de atualização. [5]
+
+## Exemplo de implementação de busca em ambientes complexos
+
+Algoritmo que usa escalada para resolver o problema do vendedor viajante em que se tenta encontrar a rota mais curta possível que visita cada cidade e, posteriormente, retorna ao ponto de origem.
+
+```python
+
+import numpy as np
+import random
+
+np.random.seed(42)
+random.seed(42)
+
+num_cities = 10
+cities = np.random.rand(num_cities, 2)
+
+def calculate_distance(route):
+    route_extended = np.append(route, [route[0]], axis=0)
+    return np.sum(np.sqrt(np.sum(np.diff(route_extended, axis=0)**2, axis=1)))
+
+def create_initial_route(cities):
+    return np.array(random.sample(list(cities), len(cities)))
+
+def get_neighbors(route):
+    neighbors = []
+    for i in range(len(route)):
+        for j in range(i + 1, len(route)):
+            neighbor = route.copy()
+            neighbor[i], neighbor[j] = neighbor[j], neighbor[i]
+            neighbors.append(neighbor)
+    return neighbors
+
+def hill_climbing(cities):
+    current_route = create_initial_route(cities)
+    current_distance = calculate_distance(current_route)
+
+    while True:
+        neighbors = get_neighbors(current_route)
+        next_route = min(neighbors, key=calculate_distance)
+        next_distance = calculate_distance(next_route)
+        
+        if next_distance >= current_distance:
+            break
+        
+        current_route, current_distance = next_route, next_distance
+
+    return current_route, current_distance
+
+hc_route, hc_distance = hill_climbing(cities)
+
+print("Hill Climbing:")
+print("Route:", hc_route)
+print("Distance:", hc_distance)
+
+```

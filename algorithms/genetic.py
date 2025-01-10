@@ -3,8 +3,6 @@ import random
 def foo(x, y, z):
     return 6*x**3 + 9*y**2 + 90*z - 25
 
-# Objetive: find the values of x, y and z that gives a result closest to 0 in foo
-
 def fitness(x, y, z):
     ans = foo(x, y, z)
 
@@ -13,7 +11,6 @@ def fitness(x, y, z):
     else:
         return abs(1/ans)
     
-# generate solutions
 solutions = []
 for s in range(1000):
     solutions.append((random.uniform(0,10000),

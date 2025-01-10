@@ -100,6 +100,78 @@ Versão do algoritmo usado como solução para o problema de encontrar um limite
 
 Algoritmo no qual são feitas duas buscas ao mesmo tempo, uma do nó raiz e outra do nó alvo, isto com a intenção de que as duas buscas se encontrem para assim chegar à solução. Para que isso funcione corretamente é necessário manter duas tabelas de nós a que se chegou, duas fronteiras e ser capaz de raciocinar ao contrário (os papéis de nó pai e sucessor são invertidos quando vistos da perspectiva do outro busqueda). Para saber qual nó expandir usa a função de avaliação, expande o nó que tem o menor valor entre as duas fronteiras. A complexidade de tempo e espaço é O(b<sup>d/2</sup>) onde b é o fator de ramificação (número de filhos em cada nó) e d é a profundidade onde o alvo está. [5]
 
+## Exemplo de implementação de busca cega
+
+Algoritmo que usa BFS bidirecional para resolver um problema de escada de palavras. Tenta converter uma palavra em outra. Neste exemplo, você só pode usar palavras que estão na lista e uma palavra só pode ser convertida em outra se a diferença for de uma letra.
+
+```python
+
+from collections import deque
+
+def word_ladder_bidirectional_bfs(begin_word, end_word, word_list):
+
+    if end_word not in word_list:
+        return 0
+
+    word_list = set(word_list)
+    word_list.add(begin_word)
+
+    begin_queue = deque([(begin_word, 1)])
+    end_queue = deque([(end_word, 1)])
+
+    begin_visited = {begin_word: 1}
+    end_visited = {end_word: 1}
+
+    while begin_queue and end_queue:
+        result = bfs_step(begin_queue, begin_visited, end_visited, word_list)
+        if result:
+            return result
+
+        result = bfs_step(end_queue, end_visited, begin_visited, word_list)
+        if result:
+            return result
+
+    return 0
+
+def bfs_step(queue, visited, other_visited, word_list):
+
+    current_word, level = queue.popleft()
+
+    for i in range(len(current_word)):
+        for char in 'abcdefghijklmnopqrstuvwxyz':
+            transformed_word = current_word[:i] + char + current_word[i+1:]
+
+            if transformed_word in word_list:
+                if transformed_word in other_visited:
+                    return level + other_visited[transformed_word]
+
+                if transformed_word not in visited:
+                    visited[transformed_word] = level + 1
+                    queue.append((transformed_word, level + 1))
+
+    return None
+
+if __name__ == "__main__":
+    
+    word_list = ["hot", "dot", "dog", "lot", "log", "cog"]
+
+    print("Words in word list: ")
+
+    for word in word_list:
+        print(word)
+
+    begin_word = "hit"
+    end_word = "cog"
+
+    result = word_ladder_bidirectional_bfs(begin_word, end_word, word_list)
+    
+    if result:
+        print(f"The shortest transformation sequence length is: {result}")
+    else:
+        print("No valid transformation sequence exists.")
+
+```
+
 ## Busca informada
 
 Algoritmos que têm informações no estado alvo que usam para aumentar a eficácia dos buscas. Esta informação vem na forma de heurísticas que são funções usadas para estimar a distância do estado alvo que ajudam a priorizar caminhos e não realizar explorações desnecessárias. Alguns exemplos de heuristicas são a distância de Manhattan e a distância euclidiana. Diferentes heurísticas são usadas dependendo do algoritmo que será implementado. [6]
@@ -172,3 +244,50 @@ Algoritmo com funcionalidade semelhante à busca do melhor primeiro, no entanto 
 ### Pesquisa heurística bidirecional
 
 Algoritmo que implementa a funcionalidade de busca bidirecional com uma fórmula heurística para determinar qual nó será expandido entre as duas fronteiras. Uma maneira de fazer isso seria usando a fórmula de busca A* f (n) = g(n) + h(n), no entanto para que isso funcione a heurística dessa fórmula deve ser diferente para cada um dos dois busques que são feitos, porque ambos têm objetivos diferentes uma tenta ir para o objetivo e outra para a origem, por isso devem ser usadas duas fórmulas distintas fF(n) =gF(n) + hF(n) para busca que vai para o alvo e fB(n) = gB(n) + hB(n) para busca que vai para o nó raiz. Outra forma que pode ser feita é usando a fórmula f2(n) = max(2g(n),g(n)+h(n)), esta ao contrário da fórmula de busca A* pode ser usada para ambos os busses, expande-se o nó que tem o valor mínimo f2(n). Sua eficácia depende da qualidade da heurística, se essa heurística é boa busca A* dá melhores resultados, se a qualidade é regular procura bidirecional é preferida porque explora menos nós e se a heurística é má ambas têm um desempenho quase igual. Este algoritmo é completo e ótimo. [5]
+
+## Exemplo de implementação de busca informada
+
+Algoritmo que usa beam search para encontrar os b (neste caso 3) melhores caminhos no grafo (caminhos com menor custo). Isto é, b é a largura do raio, assim como também é o valor limite. Para este exemplo, assume-se que todos os nós estão conectados a todos os outros nós. As posições na matriz são os nós e os números em cada posição é o custo de chegar a esse nó.
+
+```python
+
+from numpy import array
+
+
+def beam_search(distances, beta):
+    paths_so_far = [[list(), 0]]
+
+    for idx, tier in enumerate(distances):
+        if idx > 0:
+            print(f'Paths kept after tier {idx-1}:')
+            print(*paths_so_far, sep='\n')
+        paths_at_tier = list()
+        
+        for i in range(len(paths_so_far)):
+            path, distance = paths_so_far[i]
+            
+
+            for j in range(len(tier)):
+                path_extended = [path + [j], distance + tier[j]]
+                paths_at_tier.append(path_extended)
+                
+        paths_ordered = sorted(paths_at_tier, key=lambda element: element[1])
+        
+        paths_so_far = paths_ordered[:beta]
+        print(f'\nPaths pruned after tier {idx}: ')
+        print(*paths_ordered[beta:], sep='\n')
+        
+    return paths_so_far
+
+
+dists = [[1, 3, 2, 5, 8],
+         [4, 7, 9, 6, 7]]
+dists = array(dists)
+
+best_beta_paths = beam_search(dists, 3)
+
+print('\nThe best \'beta\' paths:')
+for beta_path in best_beta_paths:
+    print(beta_path)
+
+```

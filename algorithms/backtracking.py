@@ -35,6 +35,3 @@ matrix = [
 ]
 result = solution.findPath(matrix)
 print(result)
-
-
-

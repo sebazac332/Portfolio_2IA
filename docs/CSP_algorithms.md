@@ -41,3 +41,49 @@ Os algoritmos de propagação de restrições reduzem ainda mais o espaço de pe
 - Esses algoritmos refinam o espaço de pesquisa fazendo inferências, removendo valores que levariam a conflitos. [5]
 
 A propagação de restrições é comumente usada em conjunto com outros algoritmos de CSP, como o backtracking, para aumentar a eficiência ao restringir o espaço de solução no início do processo de pesquisa. [5]
+
+## Exemplo de implementação de algoritmos de satisfação de condições
+
+Exemplo de algoritmo de backtraking em que se tenta resolver um labirinto, no qual está presa uma ratazana. Este labirinto é representado por uma matriz de tamanho n x n onde 1 são espaços onde o rato pode passar e 0 são espaços bloqueados. O rato é colocado na posição (0, 0) e deve chegar à posição (n-1, n-1). No caso de o rato acabar em uma posição sem saída, ele deve ser capaz de voltar e tentar outro caminho.
+
+```python
+
+class Solution:
+    def findPath(self, mat):
+        
+        n = len(mat)
+        visited = set()
+        paths = []
+        
+        def dfs(row, col, path):
+            if (row == n-1) and (col==n-1):
+                paths.append(''.join(path))
+                return
+            
+            if row < 0 or row >= n or col < 0 or col >= n or mat[row][col] != 1 or (row, col) in visited:
+                return
+            
+            visited.add((row, col))
+            
+            dfs(row + 1, col, path + ['D']) 
+            dfs(row, col - 1, path + ['L']) 
+            dfs(row - 1, col, path + ['U'])
+            dfs(row, col + 1, path + ['R']) 
+
+            
+            visited.remove((row, col))
+                    
+        dfs(0,0,[])
+        return sorted(paths)
+
+solution = Solution()
+matrix = [
+    [1, 0, 0, 0],
+    [1, 1, 0, 1],
+    [0, 1, 1, 1],
+    [0, 0, 0, 1]
+]
+result = solution.findPath(matrix)
+print(result)
+
+```

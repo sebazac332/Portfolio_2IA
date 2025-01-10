@@ -13,3 +13,61 @@ Elementos importantes de estos algorimos son:
 - A composição da próxima geração. Duas práticas comuns são elitismo, em que não apenas sucessores, mas também pais de alto valor compõem a próxima geração; o outro é conhecido como sacrifício no qual estados com valor abaixo de um limite são eliminados. [5]
 
 Um esquema são estados que contêm em que algumas das posições são deixadas sem especificar, a partir destes são criadas instâncias que são estados que compartilham as posições especificadas enquanto as posições não especificadas podem variar, se o valor médio das instâncias for maior que o valor médio total, o número de instâncias do esquema aumentará. Esses esquemas são usados para que blocos úteis sejam combinados com outros blocos para chegar a uma solução. [5]
+
+## Exemplo de implementação de algoritmos genéticos
+
+Exemplo básico de algoritmos genéticos em que se tenta encontrar os valores de x, y e z que farão com que o resultado de uma função específica seja o mais próximo possível de zero. Neste algoritmo, a combinação e mutação são implementadas.
+
+```python
+
+import random
+
+def foo(x, y, z):
+    return 6*x**3 + 9*y**2 + 90*z - 25
+
+def fitness(x, y, z):
+    ans = foo(x, y, z)
+
+    if ans == 0:
+        return 99999
+    else:
+        return abs(1/ans)
+    
+solutions = []
+for s in range(1000):
+    solutions.append((random.uniform(0,10000),
+                      random.uniform(0,10000),
+                      random.uniform(0,10000)))
+    
+for i in range(10000):
+    rankedsolutions = []
+    for s in solutions:
+        rankedsolutions.append((fitness(s[0],s[0],s[0]),s))
+    rankedsolutions.sort
+    rankedsolutions.reverse
+
+    print(f"=== Gen {i} best solutions ===")
+    print(rankedsolutions[0])
+
+    if rankedsolutions[0][0] > 999:
+        break
+
+    bestsolutions = rankedsolutions[:100]
+
+    elements = []
+    for s in bestsolutions:
+        elements.append(s[1][0])
+        elements.append(s[1][1])
+        elements.append(s[1][2])
+    
+    newGen = []
+    for _ in range(1000):
+        e1 = random.choice(elements) * random.uniform(0.99, 1.01)
+        e2 = random.choice(elements) * random.uniform(0.99, 1.01)
+        e3 = random.choice(elements) * random.uniform(0.99, 1.01)
+
+        newGen.append((e1, e2, e3))
+
+    solutions = newGen
+
+```
