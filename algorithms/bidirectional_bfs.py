@@ -52,8 +52,8 @@ if __name__ == "__main__":
     for word in word_list:
         print(word)
 
-    begin_word = input("Enter the begin word: ").strip().lower()
-    end_word = input("Enter the end word: ").strip().lower()
+    begin_word = "hit"
+    end_word = "cog"
 
     result = word_ladder_bidirectional_bfs(begin_word, end_word, word_list)
     

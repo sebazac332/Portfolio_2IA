@@ -13,7 +13,8 @@ A fronteira é conhecida como a separação da região onde todos os nós foram 
 
 #### Nós
 
-Para armazenar os nós, uma estrutura de dados com quatro componentes é usada. [5]
+Para armazenar os nós, uma estrutura de dados com quatro componentes é usada.
+
 - node.STATE: o estado que corresponde ao nó. [5]
 - node.PARENT: o nó que gera o nó atual. [5]
 - node.ACTION: a ação que foi aplicada ao nó pai para gerar este nó. [5]
@@ -22,6 +23,7 @@ Para armazenar os nós, uma estrutura de dados com quatro componentes é usada. 
 #### Fronteira
 
 Para armazenar a fronteira é usada uma fila, as operações nessa fronteira são:
+
 - IS-EMPTY(frontier): só retorna True quando não há nós na fronteira. [5]
 - POP(frontier): remove o nó superior da fronteira e apresenta-lo. [5]
 - TOP(frontier): apresenta, mas não elimina, o nó superior da fronteira. [5]
@@ -36,8 +38,9 @@ Para armazenar a fronteira é usada uma fila, as operações nessa fronteira sã
 ### Medir el rendimiento en la resolución de problemas
 
 Critério utilizado para escolher algoritmos de busca, o desempenho pode ser medido em quatro formas:
+
 - Completude: O algoritmo pode encontrar uma solução ou relatar sua falha quando não há uma? O algoritmo deve ser capaz, independentemente do tamanho do espaço, chegar a um estado que esteja conectado com o estado inicial. [5]
-- Otimização de custos: Pode encontrar uma solução com o menor custo de todas as soluções? [5]
+- Otimização de custos: Pode encontrar uma solução com o menor custo de todas as soluções? [5] 
 - Complexidade de tempo: Quanto tempo leva para encontrar uma solução. Pode ser medido em uma unidade de tempo como segundos ou pelo número de ações e estados. [5]
 - Complexidade do espaço: Quanta memória é usada para fazer a busca. [5]
 
